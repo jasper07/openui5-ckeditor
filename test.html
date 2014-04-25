@@ -10,6 +10,10 @@
  <link rel="stylesheet" type="text/css" media="screen" href="css/stylesheet.css">
  <link rel="stylesheet" type="text/css" href="css/prism.css">
  <style type="text/css">
+    pre[class*=language-] code {
+        font-size: 14px;
+        padding: 0;
+    }
     pre, code {
         margin-top: 0px;
         background-color: #272822;
@@ -18,7 +22,7 @@
         cursor: pointer;
     }
     [id^="sample"] {
-        margin: 30px auto 0;
+        margin: 10px auto 20px;
         padding: 10px 10px 20px 0;
     }
     #sample3 {
@@ -50,7 +54,7 @@ var oEditor2 = new openui5.CKeditor({
     id: 'texteditor2',
     value: '{/txt}',
     width: "400px",
-    height: "150px",
+    height: "100px",
     toolbar: 'Basic',
     uiColor: '#009de0'
  });
