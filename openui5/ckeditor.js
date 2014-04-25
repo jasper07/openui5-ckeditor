@@ -8,7 +8,7 @@
     // jQuery.sap.require(sPath + 'CKEditor');
     // jQuery.includeStyleSheet(jQuery.sap.getModulePath(sPath, '/') + 'content.css');
 
-    var sCDNLink = 'http://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.3.2/ckeditor.js';
+    var sCDNLink = '//cdnjs.cloudflare.com/ajax/libs/ckeditor/4.3.2/ckeditor.js';
     jQuery.sap.includeScript(sCDNLink);
 
     sap.ui.core.Control.extend('openui5.CKEditor', {
