@@ -41,12 +41,22 @@ var oEditor2 = new openui5.CKeditor({
     width: "600px",
     height: "250px",
     toolbar: 'Basic',
-    inline: false,
     uiColor: '#272822'
  });
 
 oEditor2.setModel(oModel);
 oEditor2.placeAt("sample2");
+
+var oEditor3 = new openui5.CKeditor({
+    id: 'texteditor3',
+    value: '{/txt}',
+    width: "600px",
+    height: "250px",
+    inline: true
+ });
+
+oEditor3.setModel(oModel);
+oEditor3.placeAt("sample3");
 
 </script>
 </head>
@@ -75,16 +85,37 @@ oEditor2.placeAt("sample2");
 
 <pre><code class="language-javascript">
 var oEditor1 = new openui5.CKeditor({
-    id: 'texteditor1',
     value: '{/txt}',
     width: "800px",
     height: "200px",
-    toolbar: 'Full'
  });    
 </code></pre>
 
 <div id="sample1"></div>
+
+<pre><code class="language-javascript">
+var oEditor2 = new openui5.CKeditor({
+    value: '{/txt}',
+    width: "600px",
+    height: "250px",
+    toolbar: 'Basic',
+    uiColor: '#272822'
+ });    
+</code></pre>
+
 <div id="sample2" ></div>
+
+<pre><code class="language-javascript">
+var oEditor3 = new openui5.CKeditor({
+    id: 'texteditor3',
+    value: '{/txt}',
+    width: "600px",
+    height: "250px",
+    inline: true
+ });
+ </code></pre>
+
+<div id="sample3" ></div>
 </section>
 </div>
 
