@@ -100,11 +100,14 @@ oEditor3.placeAt("sample3");
       <section id="main_content" class="inner">
         <h3>
 <a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
-
-
-<pre><code class="language-javascript">var oEditor1 = new openui5.CKEditor({ value: '{/txt}' });</code></pre>
+<h2>Default usage - full toolbar</h2>
+<pre><code class="language-javascript">jQuery.sap.registerModulePath('openui5','/location/openui5');
+jQuery.sap.require("openui5.ckeditor");
+var oEditor1 = new openui5.CKEditor({ value: '{/txt}' });</code></pre>
 
 <div id="sample1"></div>
+
+<h2>Basic toolbar with dimensions and colour</h2>
 
 <pre><code class="language-javascript">var oEditor2 = new openui5.CKEditor({
     value: '{/txt}',
@@ -116,8 +119,9 @@ oEditor3.placeAt("sample3");
 
 <div id="sample2" ></div>
 
+
+<h3>Inline editor with basic toolbar</h3>
 <pre><code class="language-javascript">var oEditor3 = new openui5.CKEditor({
-    id: 'texteditor3',
     value: '{/txt}',
     width: "600px",
     height: "250px",
