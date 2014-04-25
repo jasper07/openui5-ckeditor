@@ -3,6 +3,7 @@
     /*global  sap, jQuery, openui5, CKEDITOR, window */
     jQuery.sap.declare('openui5.CKEditor');
 
+    // --- add CKEditor library to thirdparty modules else use CDN
     // var sPath = 'thirdparty.CKEditor.';
     // jQuery.sap.require(sPath + 'CKEditor');
     // jQuery.includeStyleSheet(jQuery.sap.getModulePath(sPath, '/') + 'content.css');
