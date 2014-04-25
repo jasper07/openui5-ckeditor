@@ -14,8 +14,10 @@
         font-size: 1em;
         line-height: 1.4em;
     }
-    pre[class*=language-] code {
+    pre[class*="language-"] {
         width: inherit;
+    }
+    pre[class*=language-] code {
         font-size: 14px;
         padding: 0;
     }
@@ -45,10 +47,7 @@
 
 var oEditor1 = new openui5.CKeditor({
     id: 'texteditor1',
-    value: '{/txt}',
-    width: "100%",
-    height: "150px",
-    toolbar: 'Full'
+    value: '{/txt}'
  });
 
 oEditor1.setModel(oModel);
@@ -103,12 +102,7 @@ oEditor3.placeAt("sample3");
 <a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
 
 
-<pre><code class="language-javascript">var oEditor1 = new openui5.CKeditor({
-    value: '{/txt}',
-    width: "800px",
-    height: "200px",
- });    
-</code></pre>
+<pre><code class="language-javascript">var oEditor1 = new openui5.CKeditor({ value: '{/txt}' });</code></pre>
 
 <div id="sample1"></div>
 
