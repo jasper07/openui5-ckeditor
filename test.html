@@ -7,7 +7,8 @@
     <script id="sap-ui-bootstrap" type="text/javascript" src="https://openui5.hana.ondemand.com/resources/sap-ui-core.js" data-sap-ui-libs="sap.ui.commons" data-sap-ui-theme="sap_goldreflection">
     </script>
     <script type="text/javascript">
-    sap.ui.localResources("openui5");
+    // sap.ui.localResources("openui5");
+    jQuery.sap.registerModulePath('openui5','https://raw.githubusercontent.com/jasper07/openui5-ckeditor/master/openui5');
     jQuery.sap.require("openui5.ckeditor");
 
     var txt = "<ul><li>Ale fermentation mead malt extract.</li><li>Caramel malt bottle conditioning gravity hops.</li><li>Heat exchanger cold filter aroma enzymes.</li></ul>";
