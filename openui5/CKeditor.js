@@ -181,6 +181,7 @@
         this.editor.on('change', jQuery.proxy(this.onEditorChange, this));
         this.editor.on('mode', jQuery.proxy(this.onModeChange, this));
         this.editor.on('instanceReady', jQuery.proxy(this.onInstanceReady, this));
+        this.editor.on('configLoaded', jQuery.proxy(this.onConfigLoaded, this))
     };
 
     openui5.CKeditor.prototype.onEditorChange = function() {
@@ -196,6 +197,10 @@
             });
         }
 
+    };
+
+    openui5.CKeditor.prototype.onConfigLoaded = function() {
+        console.log('configloaded - ' + this.editor.id);
     };
 
     openui5.CKeditor.prototype.onModeChange = function() {
