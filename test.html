@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+    <script id="sap-ui-bootstrap"
+            type="text/javascript"
+            src="js/openui5/resources/sap-ui-core.js"
+            data-sap-ui-libs="sap.ui.commons"
+            data-sap-ui-theme="sap_goldreflection"
+            >
+    </script>   
+<script type="text/javascript">
+ sap.ui.localResources("js/openui5", "openui5");
+ jQuery.sap.require("openui5.CKeditor");
+
+ var txt = "<ul><li>Ale fermentation mead malt extract.</li><li>Caramel malt bottle conditioning gravity hops.</li><li>Heat exchanger cold filter aroma enzymes.</li></ul>";
+ var oModel = new sap.ui.model.json.JSONModel({ txt: txt});
+ sap.ui.getCore().setModel(oModel);
+
+var oEditor1 = new openui5.CKeditor({
+    id: 'texteditor1',
+    value: '{/txt}',
+    width: "800px",
+    height: "200px",
+    toolbar: 'Full'
+ });
+
+oEditor1.setModel(oModel);
+oEditor1.placeAt("sample1");
+
+
+var oEditor2 = new openui5.CKeditor({
+    id: 'texteditor2',
+    value: '{/txt}',
+    width: "600px",
+    height: "250px",
+    toolbar: 'Basic',
+    inline: false,
+    uiColor: '#333333'
+ });
+
+oEditor2.setModel(oModel);
+oEditor2.placeAt("sample2");
+
+</script>
+</head>
+<body>
+<div id="sample1"></div>
+<div id="sample2"></div>
+</html>
