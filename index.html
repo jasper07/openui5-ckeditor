@@ -1,29 +1,93 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <title>OpenUI5 CKEditor</title>
 
-  <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Openui5-ckeditor : CKeditor wrapped in a UI5 control" />
+    <script id="sap-ui-bootstrap"
+            type="text/javascript"
+            src="openui5/resources/sap-ui-core.js">
+    </script>   
+ <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+ <link rel="stylesheet" type="text/css" href="css/prism.css">
+ <style type="text/css">
+     body {
+        font-size: 1em;
+        line-height: 1.4em;
+    }
+    pre[class*="language-"] {
+        width: inherit;
+    }
+    pre[class*=language-] code {
+        font-size: 14px;
+        padding: 0;
+    }
+    pre, code {
+        margin-top: 0px;
+        background-color: #272822;
+    }
+    .cke_editable.cke_editable_inline {
+        cursor: pointer;
+    }
+    [id^="sample"] {
+        margin: 10px auto 20px;
+        padding: 10px 0px 20px 0px;
+    }
+    #sample3 {
+        border: 1px solid #ccc;
+    }
+ </style>
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+<script type="text/javascript">
+ sap.ui.localResources("openui5");
+ jQuery.sap.require("openui5.ckeditor");
 
-    <title>Openui5-ckeditor</title>
-  </head>
+ var txt = "<ul><li>Ale fermentation mead malt extract.</li><li>Caramel malt bottle conditioning gravity hops.</li><li>Heat exchanger cold filter aroma enzymes.</li></ul>";
+ var oModel = new sap.ui.model.json.JSONModel({ txt: txt});
+ sap.ui.getCore().setModel(oModel);
 
-  <body>
+var oEditor1 = new openui5.CKEditor({
+    id: 'texteditor1',
+    value: '{/txt}'
+ });
 
-    <!-- HEADER -->
+oEditor1.setModel(oModel);
+oEditor1.placeAt("sample1");
+
+
+var oEditor2 = new openui5.CKEditor({
+    id: 'texteditor2',
+    value: '{/txt}',
+    width: "400px",
+    height: "100px",
+    toolbar: 'Basic',
+    uiColor: '#0090ff'
+ });
+
+oEditor2.setModel(oModel);
+oEditor2.placeAt("sample2");
+
+var oEditor3 = new openui5.CKEditor({
+    value: '{/txt}',
+    inline: true
+ });
+
+oEditor3.setModel(oModel);
+oEditor3.placeAt("sample3");
+
+</script>
+</head>
+<body>
+   <!-- HEADER -->
     <div id="header_wrap" class="outer">
         <header class="inner">
-          <a id="forkme_banner" href="https://github.com/jasper07/openui5-ckeditor">View on GitHub</a>
+          <a id="forkme_banner" href="https://github.com/jasper07/openui5-CKEditor">View on GitHub</a>
 
-          <h1 id="project_title">Openui5-ckeditor</h1>
-          <h2 id="project_tagline">CKeditor wrapped in a UI5 control</h2>
+          <h1 id="project_title">Openui5-CKEditor</h1>
+          <h2 id="project_tagline">CKEditor wrapped in a UI5 control</h2>
 
             <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/jasper07/openui5-ckeditor/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/jasper07/openui5-ckeditor/tarball/master">Download this project as a tar.gz file</a>
+              <a class="zip_download_link" href="https://github.com/jasper07/openui5-CKEditor/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/jasper07/openui5-CKEditor/tarball/master">Download this project as a tar.gz file</a>
             </section>
         </header>
     </div>
@@ -31,49 +95,43 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+<h3>Default usage - full toolbar</h3>
+<pre><code class="language-javascript">jQuery.sap.registerModulePath('openui5','/location/openui5');
+jQuery.sap.require("openui5.ckeditor");
+var oEditor1 = new openui5.CKEditor({ value: '{/txt}' });</code></pre>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+<div id="sample1"></div>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
+<h3>Basic toolbar with dimensions and colour</h3>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+<pre><code class="language-javascript">var oEditor2 = new openui5.CKEditor({
+    value: '{/txt}',
+    width: "600px",
+    height: "250px",
+    toolbar: 'Basic',
+    uiColor: '#0090ff'
+ });</code></pre>
 
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
+<div id="sample2" ></div>
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
 
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
+<h3>Inline editor with default toolbar</h3>
+<pre><code class="language-javascript">var oEditor3 = new openui5.CKEditor({
+    value: '{/txt}',
+    inline: true
+ });</code></pre>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-      </section>
-    </div>
+<div id="sample3" ></div>
+</section>
+</div>
 
     <!-- FOOTER  -->
     <div id="footer_wrap" class="outer">
       <footer class="inner">
-        <p class="copyright">Openui5-ckeditor maintained by <a href="https://github.com/jasper07">jasper07</a></p>
+        <p class="copyright">Openui5-CKEditor maintained by <a href="https://github.com/jasper07">jasper07</a></p>
         <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
       </footer>
     </div>
-
-    
-
-  </body>
+    <script src="js/prism.js" type="text/javascript" charset="utf-8"></script>
+    </body>
 </html>
