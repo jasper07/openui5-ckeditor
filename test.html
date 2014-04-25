@@ -18,36 +18,34 @@
 
     // default === full editor
     var oEditor1 = new openui5.CKEditor({
-            id: 'texteditor1',
-            value: '{/txt}'
+        value: '{/txt}'
+    });
 
-            oEditor1.setModel(oModel);
-            oEditor1.placeAt("sample1");
+    oEditor1.setModel(oModel);
+    oEditor1.placeAt("sample1");
 
-            var oEditor2 = new openui5.CKEditor({
-                id: 'texteditor2',
-                value: '{/txt}',
-                width: "600px",
-                height: "250px",
-                toolbar: 'Basic',
-                inline: false,
-                uiColor: '#333333'
-            });
+    var oEditor2 = new openui5.CKEditor({
+        value: '{/txt}',
+        width: "600px",
+        height: "250px",
+        toolbar: 'Basic',
+        inline: false,
+        uiColor: '#333333'
+    });
 
-            oEditor2.setModel(oModel);
-            oEditor2.placeAt("sample2");
+    oEditor2.setModel(oModel);
+    oEditor2.placeAt("sample2");
 
-            // inline editor
-            var oEditor3 = new openui5.CKEditor({
-                id: 'texteditor3',
-                value: '{/txt}',
-                width: "668px",
-                height: "250px",
-                inline: true
-            });
+    // inline editor
+    var oEditor3 = new openui5.CKEditor({
+        value: '{/txt}',
+        width: "668px",
+        height: "250px",
+        inline: true
+    });
 
-            oEditor3.setModel(oModel);
-            oEditor3.placeAt("sample3");
+    oEditor3.setModel(oModel);
+    oEditor3.placeAt("sample3");
     </script>
 </head>
 
