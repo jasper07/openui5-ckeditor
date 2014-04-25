@@ -171,6 +171,13 @@
             return;
         }
 
+        CKEDITOR.disableAutoInline = true;
+        if (this.getInline()) {
+            this.editor = CKEDITOR.inline(this.textAreaId, this._getOptions());
+        } else {
+            this.editor = CKEDITOR.replace(this.textAreaId, this._getOptions());
+        }
+
         this.editor.on('change', jQuery.proxy(this.onEditorChange, this));
         this.editor.on('mode', jQuery.proxy(this.onModeChange, this));
         this.editor.on('instanceReady', jQuery.proxy(this.onInstanceReady, this));
@@ -194,12 +201,6 @@
 
     openui5.CKeditor.prototype.onConfigLoaded = function() {
         console.log('configloaded - ' + this.editor.id);
-        CKEDITOR.disableAutoInline = true;
-        if (this.getInline()) {
-            this.editor = CKEDITOR.inline(this.textAreaId, this._getOptions());
-        } else {
-            this.editor = CKEDITOR.replace(this.textAreaId, this._getOptions());
-        }
     };
 
     openui5.CKeditor.prototype.onModeChange = function() {
