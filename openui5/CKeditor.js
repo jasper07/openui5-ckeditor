@@ -1,13 +1,13 @@
 (function() {
     'use strict';
-    /*global  sap, jQuery, openui5, CKEdiTOR, window */
+    /*global  sap, jQuery, openui5, CKEDITOR, window */
     jQuery.sap.declare('openui5.CKEditor');
 
     // var sPath = 'thirdparty.CKEditor.';
     // jQuery.sap.require(sPath + 'CKEditor');
     // jQuery.includeStyleSheet(jQuery.sap.getModulePath(sPath, '/') + 'content.css');
 
-    var sCDNLink = '//cdnjs.cloudflare.com/ajax/libs/CKEditor/4.3.2/CKEditor.js';
+    var sCDNLink = '//cdnjs.cloudflare.com/ajax/libs/ckeditor/4.3.2/ckeditor.js';
     jQuery.sap.includeScript(sCDNLink);
 
     sap.ui.core.Control.extend('openui5.CKEditor', {
@@ -141,7 +141,7 @@
             this.afterFirstRender();
         } else {
             // subsequent re-rendering: 
-            this.editor = CKEdiTOR.instances[this.textAreaId];
+            this.editor = CKEDITOR.instances[this.textAreaId];
             var value;
             if (this.editor && (value = this.getValue())) {
                 this.editor.setData(value);
@@ -149,7 +149,6 @@
         }
 
     };
-
     openui5.CKEditor.prototype._getOptions = function() {
         var options = {};
         options.toolbar = (this.getToolbar() === 'Basic') ? this.toolBarBasic : this.toolBarFull;
@@ -166,22 +165,21 @@
 
     openui5.CKEditor.prototype.afterFirstRender = function() {
         // wait until the script is ready
-        if (!window.CKEdiTOR || CKEdiTOR.status !== 'loaded') {
+        if (!window.CKEDITOR || CKEDITOR.status !== 'loaded') {
             jQuery.sap.delayedCall(10, this, 'afterFirstRender'); // '10' to avoid busy waiting
             return;
         }
 
-        CKEdiTOR.disableAutoInline = true;
+        CKEDITOR.disableAutoInline = true;
         if (this.getInline()) {
-            this.editor = CKEdiTOR.inline(this.textAreaId, this._getOptions());
+            this.editor = CKEDITOR.inline(this.textAreaId, this._getOptions());
         } else {
-            this.editor = CKEdiTOR.replace(this.textAreaId, this._getOptions());
+            this.editor = CKEDITOR.replace(this.textAreaId, this._getOptions());
         }
 
         this.editor.on('change', jQuery.proxy(this.onEditorChange, this));
         this.editor.on('mode', jQuery.proxy(this.onModeChange, this));
         this.editor.on('instanceReady', jQuery.proxy(this.onInstanceReady, this));
-        this.editor.on('configLoaded', jQuery.proxy(this.onConfigLoaded, this))
     };
 
     openui5.CKEditor.prototype.onEditorChange = function() {
@@ -199,13 +197,9 @@
 
     };
 
-    openui5.CKEditor.prototype.onConfigLoaded = function() {
-        console.log('configloaded - ' + this.editor.id);
-    };
-
     openui5.CKEditor.prototype.onModeChange = function() {
         // update value after source has changed
-        if (this.evtSource === true && this.editor.getCommand('source').state === CKEdiTOR.TRISTATE_OFF) {
+        if (this.evtSource === true && this.editor.getCommand('source').state === CKEDITOR.TRISTATE_OFF) {
             this.onEditorChange();
         }
 
