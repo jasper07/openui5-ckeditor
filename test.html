@@ -16,10 +16,12 @@
     .cke_editable.cke_editable_inline {
         cursor: pointer;
     }
-    #sample3 {
+    [id^="sample"] {
         margin: 30px auto 0;
-        border: 1px solid #ccc;
         padding: 10px;
+    }
+    #sample3 {
+        border: 1px solid #ccc;
     }
  </style>
 
@@ -34,8 +36,8 @@
 var oEditor1 = new openui5.CKeditor({
     id: 'texteditor1',
     value: '{/txt}',
-    width: "800px",
-    height: "200px",
+    width: "700px",
+    height: "150px",
     toolbar: 'Full'
  });
 
@@ -47,7 +49,7 @@ var oEditor2 = new openui5.CKeditor({
     id: 'texteditor2',
     value: '{/txt}',
     width: "600px",
-    height: "250px",
+    height: "150px",
     toolbar: 'Basic',
     uiColor: '#272822'
  });
