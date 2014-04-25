@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenUI5 CKEditor</title>
+
+    <script id="sap-ui-bootstrap"
+            type="text/javascript"
+            src="https://openui5.hana.ondemand.com/resources/sap-ui-core.js">
+    </script>   
+
+<script type="text/javascript">
+ sap.ui.localResources("openui5");
+ jQuery.sap.require("openui5.ckeditor");
+
+ var txt = "<ul><li>Ale fermentation mead malt extract.</li><li>Caramel malt bottle conditioning gravity hops.</li><li>Heat exchanger cold filter aroma enzymes.</li></ul>";
+ var oModel = new sap.ui.model.json.JSONModel({ txt: txt});
+ sap.ui.getCore().setModel(oModel);
+
+// default === full editor
+var oEditor1 = new openui5.CKEditor({
+    id: 'texteditor1',
+    value: '{/txt}'
+ });
+
+oEditor1.setModel(oModel);
+oEditor1.placeAt("sample1");
+
+// basic editor with colour and dimensions
+var oEditor2 = new openui5.CKEditor({
+    id: 'texteditor2',
+    value: '{/txt}',
+    width: "400px",
+    height: "100px",
+    toolbar: 'Basic',
+    uiColor: '#0090ff'
+ });
+
+oEditor2.setModel(oModel);
+oEditor2.placeAt("sample2");
+
+// inline editor
+var oEditor3 = new openui5.CKEditor({
+    id: 'texteditor3',
+    value: '{/txt}',
+    width: "668px",
+    height: "250px",
+    inline: true
+ });
+
+oEditor3.setModel(oModel);
+oEditor3.placeAt("sample3");
+
+</script>
+</head>
+<body>
+
+<div id="sample1"></div>
+<div id="sample2" ></div>
+<div id="sample3" ></div>
+    </body>
+</html>
