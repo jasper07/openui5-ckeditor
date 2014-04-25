@@ -129,7 +129,7 @@
     };
 
     openui5.CKEditor.prototype.setEditable = function(bEditable) {
-        this.setProperty('inline', bEditable, true);
+        this.setProperty('editable', bEditable, true);
         if (this.editor) {
             this.editor.setReadOnly(!bEditable);
         }
