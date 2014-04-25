@@ -8,7 +8,7 @@
     </script>
     <script type="text/javascript">
     sap.ui.localResources("openui5");
-    jQuery.sap.require("openui5.CKeditor");
+    jQuery.sap.require("openui5.ckeditor");
 
     var txt = "<ul><li>Ale fermentation mead malt extract.</li><li>Caramel malt bottle conditioning gravity hops.</li><li>Heat exchanger cold filter aroma enzymes.</li></ul>";
     var oModel = new sap.ui.model.json.JSONModel({
@@ -24,7 +24,7 @@
             oEditor1.setModel(oModel);
             oEditor1.placeAt("sample1");
 
-            var oEditor2 = new openui5.CKeditor({
+            var oEditor2 = new openui5.CKEditor({
                 id: 'texteditor2',
                 value: '{/txt}',
                 width: "600px",
