@@ -178,6 +178,7 @@
         }
 
         this.editor.on('change', jQuery.proxy(this.onEditorChange, this));
+        this.editor.on('blur', jQuery.proxy(this.onEditorChange, this));
         this.editor.on('mode', jQuery.proxy(this.onModeChange, this));
         this.editor.on('instanceReady', jQuery.proxy(this.onInstanceReady, this));
     };
