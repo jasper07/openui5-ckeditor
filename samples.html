@@ -7,9 +7,9 @@
     <script id="sap-ui-bootstrap" type="text/javascript" src="https://openui5.hana.ondemand.com/resources/sap-ui-core.js" data-sap-ui-libs="sap.ui.commons" data-sap-ui-theme="sap_goldreflection">
     </script>
     <script type="text/javascript">
-    // sap.ui.localResources("openui5");
-    jQuery.sap.registerModulePath('openui5','https://raw.githubusercontent.com/jasper07/openui5-ckeditor/master/openui5');
-    jQuery.sap.require("openui5.ckeditor");
+    sap.ui.localResources("openui5");
+    // jQuery.sap.registerModulePath('openui5','https://raw.githubusercontent.com/jasper07/openui5-ckeditor/master/openui5'); // this only works with disabled web security
+    jQuery.sap.require("openui5.CKEditor");
 
     var txt = "<ul><li>Ale fermentation mead malt extract.</li><li>Caramel malt bottle conditioning gravity hops.</li><li>Heat exchanger cold filter aroma enzymes.</li></ul>";
     var oModel = new sap.ui.model.json.JSONModel({
@@ -22,7 +22,6 @@
         value: '{/txt}'
     });
 
-    oEditor1.setModel(oModel);
     oEditor1.placeAt("sample1");
 
     var oEditor2 = new openui5.CKEditor({
@@ -34,7 +33,6 @@
         uiColor: '#333333'
     });
 
-    oEditor2.setModel(oModel);
     oEditor2.placeAt("sample2");
 
     // inline editor
@@ -45,7 +43,6 @@
         inline: true
     });
 
-    oEditor3.setModel(oModel);
     oEditor3.placeAt("sample3");
     </script>
 </head>
