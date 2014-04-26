@@ -113,7 +113,6 @@ sap.ui.define(['jquery.sap.global', 'sap/ui/core/Control', 'openui5/CKEditorTool
             options.height = this.getHeight();
             options.width = this.getWidth();
             options.toolbarStartupExpanded = true;
-            options.disableNativeSpellChecker = false;
             options.removePlugins = 'scayt,contextmenu,tabletools,liststyle';
             options.browserContextMenuOnCtrl = true;
             return options;
@@ -131,12 +130,14 @@ sap.ui.define(['jquery.sap.global', 'sap/ui/core/Control', 'openui5/CKEditorTool
             this.editor.on('blur', jQuery.proxy(this.onEditorChange, this));
             this.editor.on('mode', jQuery.proxy(this.onModeChange, this));
             this.editor.on('instanceReady', jQuery.proxy(this.onInstanceReady, this));
+
+            this._bEditorCreated = true;
         };
 
         CKEditor.prototype.onEditorChange = function() {
             //on editor change update control value
             var oldVal = this.getValue(),
-                newVal = this.editor.getData();
+        newVal = this.editor.getData();
 
             if ((oldVal != newVal) && !this.bExiting) {
                 this.setProperty('value', newVal, true); // suppress rerendering
