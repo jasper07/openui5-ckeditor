@@ -139,7 +139,7 @@ sap.ui.define(['jquery.sap.global', 'sap/ui/core/Control', 'openui5/CKEditorTool
             var oldVal = this.getValue(),
                 newVal = this.editor.getData();
 
-            if ((oldVal != newVal) && !this.bExiting) {
+            if (oldVal != newVal) {
                 this.setProperty('value', newVal, true); // suppress rerendering
                 this.fireChange({
                     oldValue: oldVal,
