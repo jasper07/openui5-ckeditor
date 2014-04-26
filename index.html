@@ -52,8 +52,6 @@
         id: 'texteditor1',
         value: '{/txt}'
     });
-
-    oEditor1.setModel(oModel);
     oEditor1.placeAt("sample1");
 
 
@@ -64,16 +62,12 @@
         toolbar: 'Basic',
         uiColor: '#0090ff'
     });
-
-    oEditor2.setModel(oModel);
     oEditor2.placeAt("sample2");
 
     var oEditor3 = new openui5.CKEditor({
         value: '{/txt}',
         inline: true
     });
-
-    oEditor3.setModel(oModel);
     oEditor3.placeAt("sample3");
     </script>
 </head>
@@ -114,7 +108,7 @@ var oEditor1 = new openui5.CKEditor({ value: '{/txt}' });</code></pre>
         uiColor: '#0090ff'
     });</code></pre>
 
-            <div id="sample2"></div> 
+            <div id="sample2"></div>
 
 
             <h3>Inline editor with default toolbar</h3>
