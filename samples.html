@@ -4,7 +4,7 @@
 <head>
     <title>OpenUI5 CKEditor</title>
 
-    <script id="sap-ui-bootstrap" type="text/javascript" src="https://openui5.hana.ondemand.com/resources/sap-ui-core.js" data-sap-ui-libs="sap.ui.commons" data-sap-ui-theme="sap_goldreflection">
+    <script id="sap-ui-bootstrap" type="text/javascript" src="../latest/resources/sap-ui-core.js" data-sap-ui-libs="sap.ui.commons" data-sap-ui-theme="sap_goldreflection">
     </script>
     <script type="text/javascript">
     sap.ui.localResources("openui5");
@@ -44,6 +44,20 @@
     });
 
     oEditor3.placeAt("sample3");
+
+    openui5.CKEditorToolbar.myToolbar = [
+        ['Source'], ['Cut', 'Copy', 'Paste', 'PasteText'], ['Undo', 'Redo'],
+            '/', //new line
+        ['Bold', 'Italic','Underline'], ['BulletedList', 'NumberedList', 'Blockquote']
+    ];
+
+    // inline editor
+    var oEditor4 = new openui5.CKEditor({
+        value: '{/txt}',
+        toolbar: 'myToolbar'
+    });
+
+    oEditor4.placeAt("sample4");
     </script>
 </head>
 
@@ -52,6 +66,7 @@
     <div id="sample1"></div>
     <div id="sample2"></div>
     <div id="sample3"></div>
+    <div id="sample4"></div>
 </body>
 
 </html>
