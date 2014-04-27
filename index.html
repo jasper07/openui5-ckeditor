@@ -138,16 +138,18 @@ var oEditor1 = new openui5.CKEditor({ value: '{/txt}' });</code></pre>
 
             <h3>Custom Toolbar</h3>
             <pre><code class="language-javascript">openui5.CKEditorToolbar.myToolbar = [
-        ['Source'], ['Cut', 'Copy', 'Paste', 'PasteText'], ['Undo', 'Redo'],
-            '/', //new line
-        ['Bold', 'Italic','Underline'], ['BulletedList', 'NumberedList', 'Blockquote']
-    ];
+    ['Source'],
+    ['Cut', 'Copy', 'Paste', 'PasteText'],
+    ['Undo', 'Redo'],
+    '/', //new line
+    ['Bold', 'Italic', 'Underline'],
+    ['BulletedList', 'NumberedList', 'Blockquote']
+];
 
-    // inline editor
-    var oEditor4 = new openui5.CKEditor({
-        value: '{/txt}',
-        toolbar: 'myToolbar'
-    });</code></pre>
+var oEditor4 = new openui5.CKEditor({
+    value: '{/txt}',
+    toolbar: 'myToolbar'
+});</code></pre>
             <div id="sample4"></div>
         </section>
     </div>
