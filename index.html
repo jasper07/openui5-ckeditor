@@ -5,7 +5,7 @@
     <title>OpenUI5 CKEditor</title>
     <meta name="description" content="OpenUI5 CKEditor fills the gap of the missing sap.ui.richtexteditor.RichTextEditor control in the OpenUI5 and SAPUI5 libraries. CKEditor is developer friendly atleternative to TinyMCE">
 
-    <script id="sap-ui-bootstrap" type="text/javascript" src="openui5/resources/sap-ui-core.js">
+    <script id="sap-ui-bootstrap" type="text/javascript" src="openui5/resources/sap-ui-core-lean.js">
     </script>
     <link rel="icon" type="image/ico" href="images/favicon.ico">
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css">
@@ -38,55 +38,6 @@
         border: 1px solid #ccc;
     }
     </style>
-
-    <script type="text/javascript">
-    sap.ui.localResources("openui5");
-    jQuery.sap.require("openui5.ckeditor");
-
-    var txt = "<ul><li>Ale fermentation mead malt extract.</li><li>Caramel malt bottle conditioning gravity hops.</li><li>Heat exchanger cold filter aroma enzymes.</li></ul>";
-    var oModel = new sap.ui.model.json.JSONModel({
-        txt: txt
-    });
-    sap.ui.getCore().setModel(oModel);
-
-    var oEditor1 = new openui5.CKEditor({
-        id: 'texteditor1',
-        value: '{/txt}'
-    });
-    oEditor1.placeAt("sample1");
-
-    var oEditor2 = new openui5.CKEditor({
-        value: '{/txt}',
-        width: "400px",
-        height: "150px",
-        toolbar: 'Basic',
-        uiColor: '#0090ff'
-    });
-    oEditor2.placeAt("sample2");
-
-    var oEditor3 = new openui5.CKEditor({
-        value: '{/txt}',
-        inline: true
-    });
-    oEditor3.placeAt("sample3");
-
-    openui5.CKEditorToolbar.myToolbar = [
-        ['Source'],
-        ['Cut', 'Copy', 'Paste', 'PasteText'],
-        ['Undo', 'Redo'],
-        '/', //new line
-        ['Bold', 'Italic', 'Underline'],
-        ['BulletedList', 'NumberedList', 'Blockquote']
-    ];
-
-    // inline editor
-    var oEditor4 = new openui5.CKEditor({
-        value: '{/txt}',
-        toolbar: 'myToolbar'
-    });
-
-    oEditor4.placeAt("sample4");
-    </script>
 </head>
 
 <body>
@@ -165,6 +116,54 @@ var oEditor4 = new openui5.CKEditor({
         </footer>
     </div>
     <script src="js/prism.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript">
+    sap.ui.localResources("openui5");
+    jQuery.sap.require("openui5.ckeditor");
+
+    var txt = "<ul><li>Ale fermentation mead malt extract.</li><li>Caramel malt bottle conditioning gravity hops.</li><li>Heat exchanger cold filter aroma enzymes.</li></ul>";
+    var oModel = new sap.ui.model.json.JSONModel({
+        txt: txt
+    });
+    sap.ui.getCore().setModel(oModel);
+
+    var oEditor1 = new openui5.CKEditor({
+        id: 'texteditor1',
+        value: '{/txt}'
+    });
+    oEditor1.placeAt("sample1");
+
+    var oEditor2 = new openui5.CKEditor({
+        value: '{/txt}',
+        width: "400px",
+        height: "150px",
+        toolbar: 'Basic',
+        uiColor: '#0090ff'
+    });
+    oEditor2.placeAt("sample2");
+
+    var oEditor3 = new openui5.CKEditor({
+        value: '{/txt}',
+        inline: true
+    });
+    oEditor3.placeAt("sample3");
+
+    openui5.CKEditorToolbar.myToolbar = [
+        ['Source'],
+        ['Cut', 'Copy', 'Paste', 'PasteText'],
+        ['Undo', 'Redo'],
+        '/', //new line
+        ['Bold', 'Italic', 'Underline'],
+        ['BulletedList', 'NumberedList', 'Blockquote']
+    ];
+
+    // inline editor
+    var oEditor4 = new openui5.CKEditor({
+        value: '{/txt}',
+        toolbar: 'myToolbar'
+    });
+
+    oEditor4.placeAt("sample4");
+    </script>
 </body>
 
 </html>
